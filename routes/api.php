@@ -96,7 +96,15 @@ Route::get('task','TaskController@index');
 Route::get('task/{id}','TaskController@indexid');
 Route::get('task-project/{program_id}','TaskController@getProject');
 Route::post('create-task/','TaskController@create');
+Route::put('update-task/{id}','TaskController@update');
 Route::delete('/delete-task/{id}', 'TaskController@delete');
+
+
+Route::get('tmp-milestone','TmpMilestoneController@index');
+Route::post('tmp-create-milestone','TmpMilestoneController@');
+
+Route::get('tmp-task','TmpTaskController@index');
+Route::post('tmp-create-task','TmpTaskController@createTmp');
 
 
 Route::get('users','UserController@indexAll');

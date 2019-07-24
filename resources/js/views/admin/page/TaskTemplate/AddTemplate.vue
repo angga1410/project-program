@@ -14,7 +14,7 @@
           <div class="card-body">
               <form class="" method="post" @submit.prevent="postNow">
              <div class="form-group">
-                <label for="name">Task Name</label>
+                <label for="name">Task Nam</label>
                  <input type="" class="form-control" v-model="name">
                
               </div>
