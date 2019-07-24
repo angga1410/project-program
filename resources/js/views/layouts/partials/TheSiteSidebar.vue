@@ -53,7 +53,7 @@
             <router-link to="/admin/users/All">
               Template Milestone
             </router-link>
-              <router-link to="/admin/users/All">
+              <router-link to="/admin/page/TaskTemplate">
               Template Task
             </router-link>
 

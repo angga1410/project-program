@@ -3,7 +3,7 @@
     <div class="page-header">
         <ol class="action-list">
         <li class="action-item">
-          <router-link to="/admin/page/AddProgram">Add New Template</router-link>
+          <router-link to="/admin/page/AddTemplate">Add New Template</router-link>
         </li>
       </ol>
       <h3 class="page-title">Task Template</h3>
@@ -17,10 +17,9 @@
       <div class="card-body">
         <table-component  table-class="table" :data="program">
           <table-column show="name" label="Name"/>
-          <table-column>
+          <table-column label="Action">
             <template slot-scope="row">
               <div class="table__actions">
-                <router-link :to="{ name: 'view-program', params: { id: row.id }}">Edit</router-link>
               <a
                       class="btn btn-default btn-sm"
                       @click="deleteData(row.id)"
@@ -39,6 +38,7 @@
 <script>
 import { TableComponent, TableColumn } from 'vue-table-component'
 import axios from 'axios'
+const URL = "http://192.168.0.35:8000/api";
 export default {
   components: {
     TableComponent,
@@ -47,15 +47,15 @@ export default {
 
   data() {
   return {
-    program:[]
+    listTaskTemplate:[]
   }
 },
   methods: {
    getData() {
-      axios.get(`/api/....`)
+      axios.get(`${URL}/tmp-task`)
       .then(res => {
         console.log(res.data);
-        this.program = res.data
+        this.listTaskTemplate = res.data
       })
       .catch(err => {
         console.log(err)
@@ -64,12 +64,11 @@ export default {
 
     
  deleteData(id) {
-      axios.delete(`/api/...../${id}`)
+      axios.delete(`${URL}/tmp-task/${id}`)
       .then(res => {
         console.log(res.data);
-        // this.program = res.data
-        this.program.splice(this.program.indexOf(id),1)
-        window.toastr['success']('Program Deleted', 'Success')
+        this.program.splice(this.listTaskTemplate.indexOf(id),1)
+        window.toastr['success']('Task Template Deleted', 'Success')
       })
       .catch(err => {
         console.log(err)
