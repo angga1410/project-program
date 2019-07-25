@@ -55,7 +55,7 @@
                   <table-column label="Action">
                     <template slot-scope="row">
                       <div class="">
-                        <a class="btn btn-danger text-white" @click="deleteItem(row.index)">
+                        <a class="btn btn-danger text-white" @click.prevent="deleteItem(row.index)">
                           <i class="icon-fa icon-fa-trash" /> Delete
                         </a>
                       </div>
@@ -63,7 +63,7 @@
                   </table-column>
                 </table-component>
               </div>
-              <button class="btn btn-primary" @click="createTemplate">Submit</button>
+              <button class="btn btn-primary" @click.prevent="createTemplate">Submit</button>
             </form>
           </div>
         </div>
@@ -131,17 +131,19 @@ export default {
     // },
     createTemplate() {
       var formData = new FormData();
-      formData.append("template", this.form.name)
+      formData.append("template", this.form.name);
+
       axios.post(`/api/tmp-create-task`, formData, {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-type": "application/x-www-form-urlencoded"
         }
       })
       .then(res => {
-        console.log("test")
+        console.log("success post")
         axios.get("/api/tmp-task")
         .then(res => {
-          if(res.data.id != "") {
+          console.log("succcess get id")
+          if(res.data.id > 0) {
             for(let i = 0; i < this.tmpListTask.length; i++) {
               if(this.tmpListTask[i].category === "manual") {
                 var body = new FormData();
@@ -149,7 +151,7 @@ export default {
                 body.append("template_id", res.data.id)
                 axios.post("/api/create-task", body, {
                   headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
+                    "Content-type": "application/x-www-form-urlencoded"
                   }
                 })
                 .catch(err => {
@@ -161,9 +163,9 @@ export default {
                 body2.append("id",this.tmpListTask[i].id)
                 body2.append("name", this.tmpListTask[i].name)
                 body2.append("template_id", res.data.id)
-                axios.update("/api/update-task", body, {
+                axios.put("/api/update-task/"+ res.data.id, body, {
                   headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
+                    "Content-type": "application/x-www-form-urlencoded"
                   }
                 })
                 .catch(err => {

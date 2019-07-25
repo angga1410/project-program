@@ -22,6 +22,6 @@ class TmpTaskController extends Controller
 
     public function index()
     {
-        return TmpTask::last();
+        return TmpTask::get()->last();
     }
 }
