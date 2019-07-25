@@ -131,17 +131,23 @@ export default {
     // },
     createTemplate() {
       var formData = new FormData();
-      formData.append("template", this.form.name)
+      formData.append("template", this.form.name);
+
       axios.post(`/api/tmp-create-task`, formData, {
         headers: {
+<<<<<<< HEAD
           'Content-type': 'application/x-www-form-urlencoded',
+=======
+          "Content-type": "application/x-www-form-urlencoded"
+>>>>>>> d29c6fcbb2bc1069cfab1279c721ee63e6f433c5
         }
       })
       .then(res => {
-        console.log("test")
+        console.log("success post")
         axios.get("/api/tmp-task")
         .then(res => {
-          if(res.data.id != "") {
+          console.log("succcess get id")
+          if(res.data.id > 0) {
             for(let i = 0; i < this.tmpListTask.length; i++) {
               if(this.tmpListTask[i].category === "manual") {
                 var body = new FormData();
@@ -149,7 +155,11 @@ export default {
                 body.append("template_id", res.data.id)
                 axios.post("/api/create-task", body, {
                   headers: {
+<<<<<<< HEAD
                     'Content-type': 'application/x-www-form-urlencoded',
+=======
+                    "Content-type": "application/x-www-form-urlencoded"
+>>>>>>> d29c6fcbb2bc1069cfab1279c721ee63e6f433c5
                   }
                 })
                 .catch(err => {
@@ -161,9 +171,15 @@ export default {
                 body2.append("id",this.tmpListTask[i].id)
                 body2.append("name", this.tmpListTask[i].name)
                 body2.append("template_id", res.data.id)
+<<<<<<< HEAD
                 axios.put("/api/update-task", body, {
                   headers: {
                     'Content-type': 'application/x-www-form-urlencoded',
+=======
+                axios.put("/api/update-task/"+ res.data.id, body, {
+                  headers: {
+                    "Content-type": "application/x-www-form-urlencoded"
+>>>>>>> d29c6fcbb2bc1069cfab1279c721ee63e6f433c5
                   }
                 })
                 .catch(err => {

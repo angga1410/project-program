@@ -35,6 +35,7 @@ class TaskController extends Controller
         $task->save(); 
         return;
     }
+<<<<<<< HEAD
     public function update(request $request){
         $task->portfolio_id = $request->portfolio_id;
         $task->milestone_id = $request->milestone_id;
@@ -47,6 +48,16 @@ class TaskController extends Controller
         $task->deadline = $request->deadline;
         $task->template_id = $request->template_id;
         $task = Task::find($id)->update();
+=======
+    public function update(request $request, $id){
+        
+        // $task = new Task;
+        // $task->name = $request->name;
+        // // $task->priority = $request->priority;
+        // // $task->status = $request->status;
+        // $task->template_id = $request->template_id;
+        Task::find($id)->update(['name' => $request->name, 'template_id' => $request->template_id]);
+>>>>>>> d29c6fcbb2bc1069cfab1279c721ee63e6f433c5
     
         return;
     }

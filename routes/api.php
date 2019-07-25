@@ -96,7 +96,7 @@ Route::get('task','TaskController@index');
 Route::get('task/{id}','TaskController@indexid');
 Route::get('task-project/{program_id}','TaskController@getProject');
 Route::post('create-task/','TaskController@create');
-Route::put('update-task/{id}','TaskController@update');
+Route::put('/update-task/{id}','TaskController@update');
 Route::delete('/delete-task/{id}', 'TaskController@delete');
 
 
