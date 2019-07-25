@@ -135,11 +135,7 @@ export default {
 
       axios.post(`/api/tmp-create-task`, formData, {
         headers: {
-<<<<<<< HEAD
-          'Content-type': 'application/x-www-form-urlencoded',
-=======
           "Content-type": "application/x-www-form-urlencoded"
->>>>>>> d29c6fcbb2bc1069cfab1279c721ee63e6f433c5
         }
       })
       .then(res => {
@@ -155,11 +151,7 @@ export default {
                 body.append("template_id", res.data.id)
                 axios.post("/api/create-task", body, {
                   headers: {
-<<<<<<< HEAD
-                    'Content-type': 'application/x-www-form-urlencoded',
-=======
                     "Content-type": "application/x-www-form-urlencoded"
->>>>>>> d29c6fcbb2bc1069cfab1279c721ee63e6f433c5
                   }
                 })
                 .catch(err => {
@@ -171,15 +163,9 @@ export default {
                 body2.append("id",this.tmpListTask[i].id)
                 body2.append("name", this.tmpListTask[i].name)
                 body2.append("template_id", res.data.id)
-<<<<<<< HEAD
-                axios.put("/api/update-task", body, {
-                  headers: {
-                    'Content-type': 'application/x-www-form-urlencoded',
-=======
                 axios.put("/api/update-task/"+ res.data.id, body, {
                   headers: {
                     "Content-type": "application/x-www-form-urlencoded"
->>>>>>> d29c6fcbb2bc1069cfab1279c721ee63e6f433c5
                   }
                 })
                 .catch(err => {
