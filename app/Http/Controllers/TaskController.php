@@ -27,8 +27,8 @@ class TaskController extends Controller
         $task->portfolio_id = $request->portfolio_id;
         $task->name = $request->name;
         $task->employee_id = $request->employee_id;
-        $task->priority = $request->priority;
-        $task->status = $request->status;
+        // $task->priority = $request->priority;
+        // $task->status = $request->status;
         $task->start_at = $request->start_at;
         $task->target_date = $request->target_date;
         $task->deadline = $request->deadline;
@@ -36,14 +36,12 @@ class TaskController extends Controller
         return;
     }
     public function update(request $request){
-        
-      
-        $task->milestone_id = $request->project_id;
         $task->portfolio_id = $request->portfolio_id;
+        $task->milestone_id = $request->milestone_id;
         $task->name = $request->name;
         $task->employee_id = $request->employee_id;
-        $task->priority = $request->priority;
-        $task->status = $request->status;
+        // $task->priority = $request->priority;
+        // $task->status = $request->status;
         $task->start_at = $request->start_at;
         $task->target_date = $request->target_date;
         $task->deadline = $request->deadline;

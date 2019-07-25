@@ -41,7 +41,7 @@ import VueCollapse from './views/admin/components/VueCollapse.vue'
 
 // Charts
 import Chartjs from './views/admin/charts/Chartjs.vue'
-import Gauges from './views/admin/charts/Gauge.vue'
+
 
 // Icons
 import Fontawesome from './views/admin/icons/Fontawesome.vue'
@@ -63,11 +63,11 @@ import VideoGallery from './views/admin/gallery/VideoGallery.vue'
 
 // Apps
 import TodosApp from './views/admin/apps/todos/TodosApp.vue'
-import MailboxApp from './views/admin/apps/mailbox/MailboxApp.vue'
+import MailboxApp from './views/admin/apps/mailbox/MailBoxApp.vue'
 
 // Users
-import Users from './views/admin/page//user/User.vue'
-import AddUsers from './views/admin/page//user/AddUser.vue'
+import Users from './views/admin/page/User/User.vue'
+import AddUsers from './views/admin/page/User/AddUser.vue'
 import Profile from './views/admin/users/Profile.vue'
 
 // Settings
@@ -93,6 +93,8 @@ import AddProgram from './views/admin/page/Program/AddProgram.vue'
 import Task from './views/admin/page/Task/Task.vue'
 import ViewTask from './views/admin/page/Task/ViewTask.vue'
 import AddTask from './views/admin/page/Task/AddTask.vue'
+import TaskTemplate from './views/admin/page/TaskTemplate/TaskTemplate.vue'
+import AddTaskTemplate from './views/admin/page/TaskTemplate/AddTemplate.vue'
 
 
 import Manager from './views/admin/page/Manager/Manager.vue'
@@ -267,10 +269,6 @@ const routes = [
         path: 'charts/chartjs',
         component: Chartjs
       },
-      {
-        path: 'charts/gauges',
-        component: Gauges
-      },
 
       //  Icons
       {
@@ -440,6 +438,14 @@ const routes = [
       {
         path: 'page/AddTask',
         component: AddTask
+      },
+      {
+        path: 'page/TaskTemplate',
+        component: TaskTemplate
+      },
+      {
+        path: 'page/AddTemplate',
+        component: AddTaskTemplate
       },
 
 
